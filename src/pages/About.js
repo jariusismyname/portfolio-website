@@ -21,19 +21,13 @@ const About = () => {
            animate={{ opacity: 1, scale: 1 }}
            transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h2>About Us</h2>
+            <h2>About Me</h2>
         <p>
-          Welcome to our platform! We are dedicated to providing you with the best experience possible.
-          Our mission is to deliver high-quality services and products that meet your needs and exceed your expectations.
-        </p>
+          My four-year journey as a Computer Engineering student has been both challenging and rewarding. I built a strong foundation in programming and electronics, faced setbacks like failing a subject, and learned to bounce back with resilience. </p>
         <p>
-          Founded in [Year], our team consists of passionate professionals who are experts in their respective fields.
-          We believe in innovation, creativity, and the power of technology to transform lives.
-        </p>
+         Through hands-on projects such as a library system, POS app, RC car, and a Raspberry Pi translator, I developed practical skills in both hardware and software.   </p>
         <p>
-          Whether you're here for the first time or a returning visitor, we're thrilled to have you with us.
-          Explore our site to learn more about what we offer and how we can help you achieve your goals.
-        </p>
+         Despite personal and academic struggles, I pushed through and discovered a deeper passion for building real-world solutions. These experiences have shaped me into a more skilled, adaptable, and determined future engineer.   </p>
         </HeroSubtitle>
       </div>
     </section>

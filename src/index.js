@@ -27,5 +27,3 @@ export const projects = [
   },
   // Add more projects
 ];
-
-

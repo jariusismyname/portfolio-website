@@ -3,9 +3,12 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f4f4f4;
+    background: rgb(255, 255, 255);
     margin: 0;
     padding: 20px;
+    height: 100%; /* Ensure body takes full height */
+    padding: 0; /* Remove padding */
+
 }
 
 /* Section Styling */
@@ -27,7 +30,7 @@ body {
     max-width: 800px;
     margin: auto;
 }
-
+ 
 /* Timeline Item */
 .timeline-item {
     display: flex;
@@ -106,5 +109,6 @@ body {
 
     .timeline-item::before {
         left: 50%;
+        
     }
 }

@@ -5,7 +5,7 @@ import Projects from './pages/Projects';
 import About from './pages/About';         // Fixed casing
 import Footer from './components/Footer';
 import Timeline from './pages/Timeline';
-
+import ResumeViewer from './components/ResumeViewer';
 function App() {
   return (
     <Router>
@@ -17,7 +17,7 @@ function App() {
         <Route path="/Footer" element={<Footer />} />   
         <Route path="pages/script" element={<Footer />} />   
         <Route path="timeline" element={<Timeline />} />   
-
+        <Route path="/view-resume" element={<ResumeViewer />} />
       </Routes>
       
          <Footer />
