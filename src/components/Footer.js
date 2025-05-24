@@ -7,7 +7,7 @@ const FooterContainer = styled(motion.footer)`
   background: #2d2d2d;
   color: white;
   padding: 4rem 5%;
-  margin-top: 4rem;
+  margin-top: auto;
 `;
 
 const FooterContent = styled.div`

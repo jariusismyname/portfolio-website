@@ -1,0 +1,20 @@
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link.active {
+  background-color: white;
+  color: #4B3B2B; /* matches your theme */
+  border-radius: 20px;
+}

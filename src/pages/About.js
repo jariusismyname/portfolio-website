@@ -12,8 +12,20 @@ const HeroSubtitle = styled(motion.p)`
 //     font-size: 1.2rem;
 //   }
 `;
+
+
+const HeroSection = styled(motion.section)`
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  background: linear-gradient(0deg, rgb(109, 55, 11), rgb(255, 255, 254));
+`;
 const About = () => {
   return (
+        <HeroSection>
     <section id="about" className="about-section">
       <div className="about-content">
       <HeroSubtitle
@@ -31,6 +43,7 @@ const About = () => {
         </HeroSubtitle>
       </div>
     </section>
+</HeroSection>
   );
 };
 

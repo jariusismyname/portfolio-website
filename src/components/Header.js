@@ -1,12 +1,18 @@
-// components/Header.js
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// Header.js
+import React from 'react';
+// import { Link } from 'react-router-dom';
 import { FiGithub, FiLinkedin, FiMail, FiMenu, FiX } from 'react-icons/fi';
 import styled from 'styled-components';
+import { FaHome } from "react-icons/fa";
+import { GoProjectSymlink } from "react-icons/go";
+import { MdFeedback } from "react-icons/md";
+import { FcAbout } from "react-icons/fc";
+import { NavLink } from 'react-router-dom';
+import './Header.css'; // Assuming you have a CSS file for styling
 
 const HeaderContainer = styled.header`
-  padding: 1.5rem 5%;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  padding: 2.5rem 5%;
+  background: linear-gradient(to right,#4B3B2B,rgb(130, 92, 63));
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
@@ -35,6 +41,10 @@ const SocialLinks = styled.div`
   a {
     font-size: 1.2rem;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const DesktopNavLinks = styled.div`
@@ -51,14 +61,28 @@ const DesktopNavLinks = styled.div`
       color: #646cff;
     }
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const MobileIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    left: 1rem; /* adjust to control horizontal position */
+    top: 1.5rem;
+    z-index: 1200;
+  }
 `;
+
+
+
 
 const SideNav = styled.div`
   position: fixed;
@@ -67,7 +91,7 @@ const SideNav = styled.div`
   width: 250px;
   height: 100%;
   background: rgba(251, 129, 129, 0.95);
-  transition: right 0.3s ease;
+  transition: left 0.3s ease;
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
@@ -97,38 +121,45 @@ const MobileNavLinks = styled.div`
   }
 `;
 
-export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
 
+
+
+// (your styled-components remain unchanged...)
+
+export default function Header({ menuOpen, setMenuOpen }) {
   return (
     <HeaderContainer>
-      
-      <Nav>
-         <MobileIcon onClick={() => setMenuOpen(true)}>
-          <FiMenu size={28} />
-        </MobileIcon>
+     
+           <Nav>
+       <MobileIcon onClick={() => setMenuOpen(!menuOpen)}>
+  <FiMenu size={28} />
+</MobileIcon>
+
+          
+
         <LeftSection>
-          <DesktopNavLinks>
-            <Link to="/">Home</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/timeline">Timeline</Link>
-            <Link to="/about">About</Link>
-          </DesktopNavLinks>
+      <DesktopNavLinks>
+  <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+    <FaHome /> Home
+  </NavLink>
+  <NavLink to="/projects" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+    <GoProjectSymlink /> Projects
+  </NavLink>
+  <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+    <FcAbout /> About
+  </NavLink>
+  <NavLink to="/timeline" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+    <MdFeedback /> Feedback
+  </NavLink>
+</DesktopNavLinks>
+
         </LeftSection>
 
         <SocialLinks>
-          <a href="https://github.com/jariusismyname">
-            <FiGithub />
-          </a>
-          <a href="https://www.linkedin.com/in/ballesteros-jarius-miguel-c-4b7a43277/">
-            <FiLinkedin />
-          </a>
-          <a href="mailto:jrsmglctpngbllstrs@gmail.com">
-            <FiMail />
-          </a>
+          <a href="https://github.com/jariusismyname"><FiGithub /></a>
+          <a href="https://www.linkedin.com/in/ballesteros-jarius-miguel-c-4b7a43277/"><FiLinkedin /></a>
+          <a href="mailto:jrsmglctpngbllstrs@gmail.com"><FiMail /></a>
         </SocialLinks>
-
-       
       </Nav>
 
       <SideNav open={menuOpen}>
@@ -136,10 +167,11 @@ export default function Header() {
           <FiX size={28} />
         </CloseIconContainer>
         <MobileNavLinks>
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
-          <Link to="/timeline" onClick={() => setMenuOpen(false)}>Timeline</Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+          <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}><FaHome /> Home</ NavLink>
+          <NavLink to="/projects" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}><GoProjectSymlink /> Projects</NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}><FcAbout /> About</NavLink>
+          <NavLink to="/timeline" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}><MdFeedback /> Feedback</NavLink>
+
         </MobileNavLinks>
       </SideNav>
     </HeaderContainer>

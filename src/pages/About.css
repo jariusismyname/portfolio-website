@@ -1,11 +1,11 @@
 .about-section {
-    padding: 50px 20px;
-    background-color: #f9f9f9;
+    padding: 100px 150px;
+    background-color: transparent; /* light transparent white */
     text-align: center;
   }
   
   .about-content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   
@@ -17,5 +17,5 @@
   .about-content p {
     font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }

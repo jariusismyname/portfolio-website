@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./styles.css"; // Import your CSS file
+import { PiBooksLight } from "react-icons/pi";
+import { MdOutlineWorkOutline } from "react-icons/md";
+
+
+
 
 const Timeline = () => {
   return (
@@ -13,8 +18,10 @@ const Timeline = () => {
           initial={{ opacity: 0, scale: 0.8 }} 
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        >           
+
           <div className="timeline-left">
+ <PiBooksLight  size={50}  />
             <div className="timeline-date">August 2021</div>
             <div className="timeline-title">Started College</div>
           </div>
@@ -30,6 +37,8 @@ const Timeline = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <div className="timeline-left">
+            <MdOutlineWorkOutline size={50}/>
+
             <div className="timeline-date">June 2024</div>
             <div className="timeline-title">First Internship</div>
           </div>

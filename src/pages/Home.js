@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import styled, { createGlobalStyle } from 'styled-components';
 import Projects from './Projects';
 import About from './About';
-import Timeline from './Timeline';
+// import Timeline from './Timeline';
 import Viewresume from '../components/ResumeViewer';
+import FlipCard from '../components/FlipCard';
 
 // Option 1: GlobalStyle to load the font (if not added via index.html)
 const GlobalStyle = createGlobalStyle`
@@ -18,7 +19,7 @@ const HeroSection = styled(motion.section)`
   justify-content: center;
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margin */
-  background: linear-gradient(0deg, rgb(255, 255, 254), rgb(181, 136, 99));
+  background: linear-gradient(0deg, rgb(255, 255, 254), rgb(109, 55, 11));
 `;
 
 const ContentWrapper = styled.div`
@@ -77,13 +78,32 @@ const HeroSubtitle = styled(motion.p)`
 
 // Styled component for the fancy cursive text
 const FancyText = styled.span`
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Georgia', serif;
   font-size: 2em;
-  color: #7B3F00;
+  color:rgb(255, 255, 255); /* A darker, formal brown shade */
 `;
+
+const NameText = styled.span`
+  font-family: 'Georgia', serif;
+  font-size: 2em;
+  color:rgb(143, 221, 247); /* A darker, formal brown shade */
+`;
+const JustifiedParagraph = styled.p`
+  font-family: 'Georgia', serif;
+  font-size: 1.5em;
+  color: #4B3B2B;
+  text-align: justify;
+`;
+
 
 export default function Home() {
   return (
+     <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 2 }}
+    >
     <>
       {/* Ensure the font is loaded */}
       <GlobalStyle />
@@ -100,15 +120,16 @@ export default function Home() {
               animate={{ y: 0 }}
               transition={{ delay: 0.2 }}
             >
-             <FancyText>  Hi, I'm Jarius 👋</FancyText>
+             <FancyText>  Hi, I'm </FancyText><NameText>Jarius </NameText>
             </HeroTitle>
-            <HeroSubtitle
+            <JustifiedParagraph
               initial={{ y: 20 }}
               animate={{ y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Full-stack developer specializing in modern web applications
-            </HeroSubtitle>
+My four-year journey as a Computer Engineering student has been both challenging and rewarding. I built a strong foundation in programming and electronics, faced setbacks like failing a subject, and learned to bounce back with resilience. Through hands-on projects such as a library system, POS app, RC car, and a Raspberry Pi translator, I developed practical skills in both hardware and software. Despite personal and academic struggles, I pushed through and discovered a deeper passion for building real-world solutions. These experiences have shaped me into a more skilled, adaptable, and determined future engineer.
+
+          <  Viewresume /></JustifiedParagraph>
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
@@ -118,23 +139,16 @@ export default function Home() {
             </motion.div>
           </TextContent>
 
-          <ProfileImage
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8 }}
-          >
-            <img
-              src="/images/profile.jpg"  // Ensure the path is correct for your image
-              alt="Jarius - Web Developer"
-            />
-          </ProfileImage>
+          
+                  <FlipCard />
+
         </ContentWrapper>
       </HeroSection>
 
-      <Viewresume />
       <Projects />
-      <Timeline />
+      {/* <Timeline /> */}
       <About />
     </>
+    </motion.div>
   );
 }

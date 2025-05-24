@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: rgb(255, 255, 255);
+    background: white;
     margin: 0;
     padding: 20px;
     height: 100%; /* Ensure body takes full height */
